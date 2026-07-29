@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>My Account | K.C.O Global Online Marketplace</title>
+  <meta name="description" content="Manage your K.C.O Global Online Marketplace account — view orders, track shipments, and update your profile.">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="K.C.O Global">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="K.C.O Global Online Marketplace">
+  <meta property="og:title" content="My Account | K.C.O Global Online Marketplace">
+  <meta property="og:description" content="Manage your K.C.O Global Online Marketplace account — view orders, track shipments, and update your profile.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="My Account | K.C.O Global Online Marketplace">
+  <meta name="twitter:description" content="Manage your K.C.O Global Online Marketplace account — view orders, track shipments, and update your profile.">
+  <link rel="canonical" href="https://k-c-o-global-online-4kft.bolt.host/account">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles.css">
+  <script src="https://unpkg.com/lucide@0.460.0" defer></script>
+  <style>
+    * { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+    body { -webkit-font-smoothing: antialiased; }
+    @keyframes fade-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    .fade-in{animation:fade-in .4s ease forwards}
+    @keyframes slide-up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .slide-up{animation:slide-up .5s cubic-bezier(.16,1,.3,1) forwards}
+    .glass{background:rgba(15,23,42,.75);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+    .glass-soft{background:rgba(30,41,59,.4);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+    .btn-press{transition:transform .15s cubic-bezier(.4,0,.2,1)}
+    .btn-press:active{transform:scale(.97)}
+    .ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.35);transform:scale(0);animation:ripple-anim .6s ease-out;pointer-events:none}
+    @keyframes ripple-anim{to{transform:scale(4);opacity:0}}
+    @keyframes float-up{0%{transform:translateY(0);opacity:0}10%{opacity:.5}90%{opacity:.3}100%{transform:translateY(-100vh);opacity:0}}
+    .particle{position:absolute;border-radius:50%;pointer-events:none;animation:float-up linear infinite}
+    .skeleton{background:linear-gradient(90deg,rgba(30,41,59,.4) 25%,rgba(30,41,59,.7) 50%,rgba(30,41,59,.4) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite}
+    @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+    @keyframes pulse-glow{0%,100%{box-shadow:0 0 0 0 rgba(59,130,246,.3)}50%{box-shadow:0 0 0 8px rgba(59,130,246,0)}}
+    .pulse-glow{animation:pulse-glow 2s ease-in-out infinite}
+    .scrollbar-none::-webkit-scrollbar{display:none}
+    .scrollbar-none{-ms-overflow-style:none;scrollbar-width:none}
+    .nav-item{transition:all .2s cubic-bezier(.4,0,.2,1)}
+    .nav-item.active{background:rgba(59,130,246,.15);color:#60a5fa;border-color:rgba(59,130,246,.3)}
+    .nav-item.active .nav-icon{color:#60a5fa}
+    .section{display:none}
+    .section.active{display:block;animation:fade-in .3s ease forwards}
+    @keyframes check-pop{0%{transform:scale(0)}70%{transform:scale(1.2)}100%{transform:scale(1)}}
+    .check-pop{animation:check-pop .5s cubic-bezier(.16,1,.3,1) forwards}
+    .toggle-bg{transition:background-color .2s}
+    .toggle-dot{transition:transform .2s cubic-bezier(.4,0,.2,1)}
+    input[type="checkbox"].toggle:checked + .toggle-bg{background:#2563eb}
+    input[type="checkbox"].toggle:checked + .toggle-bg .toggle-dot{transform:translateX(20px)}
+  </style>
+</head>
+<body class="bg-[#070b16] text-gray-100 min-h-screen">
+
+  <!-- Premium gradient background -->
+  <div class="fixed inset-0 pointer-events-none">
+    <div class="absolute inset-0 bg-gradient-to-br from-[#070b16] via-[#0a1124] to-[#070b16]"></div>
+    <div class="absolute -top-48 -left-48 w-[32rem] h-[32rem] bg-blue-600/10 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-48 -right-48 w-[32rem] h-[32rem] bg-blue-800/8 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/3 left-1/2 -translate-x-1/2 w-96 h-96 bg-amber-500/4 rounded-full blur-3xl"></div>
+  </div>
+  <div class="fixed inset-0 pointer-events-none opacity-[0.015]" style="background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);background-size:40px 40px"></div>
+  <div id="particles" class="fixed inset-0 pointer-events-none overflow-hidden"></div>
+
+  <!-- Top header (mobile) -->
+  <header class="fixed top-0 inset-x-0 z-50 glass border-b border-blue-500/15 lg:hidden">
+    <div class="px-4 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2">
+        <div class="w-9 h-9 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center shadow-lg shadow-blue-600/20">
+          <i data-lucide="globe" class="w-5 h-5 text-white"></i>
+        </div>
+        <span class="text-lg font-black tracking-tight text-white">K.C.O</span>
+      </a>
+      <button id="btn-mobile-menu" class="p-2 hover:bg-blue-500/10 rounded-lg transition">
+        <i data-lucide="menu" class="w-6 h-6 text-gray-400"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Sidebar (desktop) -->
+  <aside id="sidebar" class="hidden lg:flex fixed top-0 left-0 bottom-0 w-64 glass border-r border-blue-500/15 flex-col z-40">
+    <div class="p-5 border-b border-blue-500/10">
+      <a href="/" class="flex items-center gap-2">
+        <div class="w-9 h-9 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center shadow-lg shadow-blue-600/20">
+          <i data-lucide="globe" class="w-5 h-5 text-white"></i>
+        </div>
+        <div>
+          <span class="text-base font-black tracking-tight text-white block leading-tight">K.C.O</span>
+          <span class="text-[10px] text-amber-400 font-bold uppercase tracking-wider">Global Online Marketplace</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Profile mini -->
+    <div class="p-4 border-b border-blue-500/10">
+      <div class="flex items-center gap-3">
+        <div id="sidebar-avatar" class="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center text-white font-bold text-sm shrink-0 overflow-hidden"></div>
+        <div class="min-w-0">
+          <p id="sidebar-name" class="text-sm font-bold text-white truncate">Loading...</p>
+          <p id="sidebar-email" class="text-xs text-gray-500 truncate">—</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="nav-menu" class="flex-1 overflow-y-auto scrollbar-none p-3 space-y-0.5">
+      <!-- Nav items injected by JS -->
+    </nav>
+
+    <div class="p-3 border-t border-blue-500/10">
+      <button id="btn-signout-desktop" class="btn-press w-full flex items-center gap-3 px-3 py-2.5 text-sm text-gray-400 hover:text-red-400 hover:bg-red-500/10 rounded-xl transition relative overflow-hidden">
+        <i data-lucide="log-out" class="w-4 h-4"></i> Logout
+      </button>
+    </div>
+  </aside>
+
+  <!-- Mobile drawer -->
+  <div id="mobile-drawer" class="hidden fixed inset-0 z-50 lg:hidden">
+    <div id="mobile-backdrop" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+    <div class="absolute left-0 top-0 bottom-0 w-72 glass border-r border-blue-500/20 shadow-2xl flex flex-col">
+      <div class="p-5 border-b border-blue-500/10 flex items-center justify-between">
+        <span class="text-base font-black text-white">Menu</span>
+        <button id="btn-mobile-close" class="p-2 hover:bg-blue-500/10 rounded-lg transition">
+          <i data-lucide="x" class="w-5 h-5 text-gray-400"></i>
+        </button>
+      </div>
+      <div class="p-4 border-b border-blue-500/10">
+        <div class="flex items-center gap-3">
+          <div id="mobile-avatar" class="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center text-white font-bold text-sm shrink-0 overflow-hidden"></div>
+          <div class="min-w-0">
+            <p id="mobile-name" class="text-sm font-bold text-white truncate">Loading...</p>
+            <p id="mobile-email" class="text-xs text-gray-500 truncate">—</p>
+          </div>
+        </div>
+      </div>
+      <nav id="mobile-nav-menu" class="flex-1 overflow-y-auto scrollbar-none p-3 space-y-0.5"></nav>
+      <div class="p-3 border-t border-blue-500/10">
+        <button id="btn-signout-mobile" class="btn-press w-full flex items-center gap-3 px-3 py-2.5 text-sm text-gray-400 hover:text-red-400 hover:bg-red-500/10 rounded-xl transition relative overflow-hidden">
+          <i data-lucide="log-out" class="w-4 h-4"></i> Logout
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <main class="pt-16 lg:pt-0 lg:pl-64 min-h-screen relative z-10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 lg:py-8">
+      <div id="dashboard-root" class="min-h-[400px]">
+        <div class="flex items-center justify-center py-20">
+          <div class="flex items-center gap-3 text-gray-500 text-sm">
+            <i data-lucide="loader-2" class="w-5 h-5 animate-spin text-blue-400"></i>
+            Loading your dashboard...
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Toast -->
+  <div id="toast" class="fixed bottom-5 right-5 z-[100] transform translate-y-20 opacity-0 bg-gray-900 border border-blue-500/30 text-white px-5 py-3 rounded-xl shadow-xl text-xs flex items-center gap-2 font-medium transition-all duration-300 pointer-events-none">
+    <i data-lucide="info" class="w-4 h-4 text-blue-400"></i><span id="toast-msg">Action</span>
+  </div>
+
+  <script type="module" src="/src/account-page.js"></script>
+  <script type="module" src="/src/native-bridge.js"></script>
+  <script type="module" src="/src/localization-bootstrap.js"></script>
+  <script type="module" src="/src/live-stream-mode.js"></script>
+  <script type="module" src="/src/customer-ai-widget.js"></script>
+  <script src="/back-button.js" defer></script>
+</body>
+</html>

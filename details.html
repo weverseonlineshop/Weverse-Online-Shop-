@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Property Details | K.C.O Global Online Marketplace</title>
+  <meta name="description" content="View full product details, specifications, and seller information at K.C.O Global Online Marketplace.">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="K.C.O Global">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="K.C.O Global Online Marketplace">
+  <meta property="og:title" content="Property Details | K.C.O Global Online Marketplace">
+  <meta property="og:description" content="View full product details, specifications, and seller information at K.C.O Global Online Marketplace.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Property Details | K.C.O Global Online Marketplace">
+  <meta name="twitter:description" content="View full product details, specifications, and seller information at K.C.O Global Online Marketplace.">
+  <link rel="canonical" href="https://k-c-o-global-online-4kft.bolt.host/details">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/src/styles.css">
+  <script src="https://unpkg.com/lucide@0.460.0" defer></script>
+  <link rel="preconnect" href="https://images.pexels.com">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+  <style>
+    .scrollbar-none::-webkit-scrollbar{display:none}
+    .scrollbar-none{-ms-overflow-style:none;scrollbar-width:none}
+    @keyframes fade-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    .fade-in{animation:fade-in .4s ease forwards}
+    .gallery-thumb{transition:all .2s ease}
+    .gallery-thumb.active{border-color:#f97316;box-shadow:0 0 0 2px rgba(249,115,22,.3)}
+    .hero-zoom{transition:transform .4s ease}
+    .hero-zoom:hover{transform:scale(1.03)}
+  </style>
+</head>
+<body class="bg-[#0b0f19] text-gray-100 font-sans antialiased min-h-screen">
+  <header class="fixed top-0 inset-x-0 z-40 bg-[#0f172a]/90 backdrop-blur-md border-b border-gray-800">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <button onclick="history.back()" class="p-2 hover:bg-gray-800 rounded-lg transition" aria-label="Back">
+          <i data-lucide="arrow-left" class="w-5 h-5"></i>
+        </button>
+        <span class="text-xl font-black tracking-wider text-white">K.C.O</span>
+      </div>
+      <a href="/" class="text-xs text-gray-400 hover:text-orange-500 transition uppercase tracking-wide">Back to Marketplace</a>
+    </div>
+  </header>
+
+  <main class="pt-16 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-8">
+    <div id="details-content" class="min-h-[400px]">
+      <div class="flex items-center justify-center py-20">
+        <div class="text-gray-500 text-sm">Loading property details...</div>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="/src/details.js"></script>
+  <script type="module" src="/src/localization-bootstrap.js"></script>
+  <script type="module" src="/src/live-stream-mode.js"></script>
+  <script type="module" src="/src/customer-ai-widget.js"></script>
+  <script src="/back-button.js" defer></script>
+</body>
+</html>

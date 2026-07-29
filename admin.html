@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Admin Dashboard | K.C.O Global Online Marketplace</title>
+  <meta name="description" content="K.C.O Global Online Marketplace admin dashboard for managing products, orders, and customers.">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="K.C.O Global">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="K.C.O Global Online Marketplace">
+  <meta property="og:title" content="Admin Dashboard | K.C.O Global Online Marketplace">
+  <meta property="og:description" content="K.C.O Global Online Marketplace admin dashboard for managing products, orders, and customers.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Admin Dashboard | K.C.O Global Online Marketplace">
+  <meta name="twitter:description" content="K.C.O Global Online Marketplace admin dashboard for managing products, orders, and customers.">
+  <link rel="canonical" href="https://k-c-o-global-online-4kft.bolt.host/admin">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles.css">
+  <script src="https://unpkg.com/lucide@0.460.0" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <style>
+    * { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+    body { -webkit-font-smoothing: antialiased; }
+    .glass { background: rgba(15,23,42,.75); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+    .glass-soft { background: rgba(30,41,59,.4); backdrop-filter: blur(8px); }
+    @keyframes fade-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-in { animation: fade-in .4s ease forwards; }
+    @keyframes slide-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .slide-up { animation: slide-up .5s cubic-bezier(.16,1,.3,1) forwards; }
+    .btn-press { transition: transform .15s cubic-bezier(.4,0,.2,1); }
+    .btn-press:active { transform: scale(.97); }
+    .nav-item { transition: all .2s; }
+    .nav-item.active { background: rgba(59,130,246,.15); color: #60a5fa; }
+    .nav-item:hover:not(.active) { background: rgba(59,130,246,.08); color: #93c5fd; }
+    .scrollbar-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+    .scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
+    .scrollbar-thin::-webkit-scrollbar-thumb { background: rgba(59,130,246,.2); border-radius: 3px; }
+    .scrollbar-thin::-webkit-scrollbar-thumb:hover { background: rgba(59,130,246,.4); }
+    .input-field { transition: border-color .2s, box-shadow .2s; }
+    .input-field:focus { box-shadow: 0 0 0 3px rgba(59,130,246,.1); }
+    .modal-overlay { animation: fade-in .2s ease forwards; }
+    .modal-content { animation: slide-up .3s cubic-bezier(.16,1,.3,1) forwards; }
+    .stat-card { transition: transform .2s, box-shadow .2s; }
+    .stat-card:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(59,130,246,.1); }
+    .tab-item { transition: all .2s; }
+    .tab-item.active { background: rgba(59,130,246,.15); color: #60a5fa; border-color: rgba(59,130,246,.3); }
+    table.data-table th { position: sticky; top: 0; z-index: 10; }
+  </style>
+</head>
+<body class="bg-[#070b16] text-gray-100 min-h-screen">
+  <div class="fixed inset-0 pointer-events-none">
+    <div class="absolute inset-0 bg-gradient-to-br from-[#070b16] via-[#0a1124] to-[#070b16]"></div>
+    <div class="absolute -top-48 -left-48 w-[32rem] h-[32rem] bg-blue-600/10 rounded-full blur-3xl"></div>
+  </div>
+
+  <!-- Sidebar -->
+  <aside id="sidebar" class="fixed left-0 top-0 bottom-0 w-64 glass border-r border-blue-500/15 z-50 flex flex-col transition-transform duration-300 -translate-x-full lg:translate-x-0">
+    <div class="h-16 flex items-center gap-2 px-4 border-b border-blue-500/10 shrink-0">
+      <div class="w-9 h-9 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center shadow-lg shadow-blue-600/20">
+        <i data-lucide="layout-dashboard" class="w-5 h-5 text-white"></i>
+      </div>
+      <div>
+        <span class="text-sm font-black text-white block leading-tight">Admin Dashboard</span>
+        <span class="text-[9px] text-amber-400 font-bold uppercase tracking-wider">K.C.O Global Online Marketplace</span>
+      </div>
+    </div>
+    <nav id="sidebar-nav" class="flex-1 overflow-y-auto scrollbar-thin py-3 px-2 space-y-0.5"></nav>
+    <div class="p-3 border-t border-blue-500/10 shrink-0">
+      <div id="admin-user-info" class="flex items-center gap-2 mb-2"></div>
+      <a href="/" class="btn-press flex items-center gap-2 text-xs font-bold text-gray-400 hover:text-white px-3 py-2 rounded-xl transition w-full">
+        <i data-lucide="home" class="w-4 h-4"></i> Back to Site
+      </a>
+      <button onclick="adminSignOut()" class="btn-press flex items-center gap-2 text-xs font-bold text-red-400 hover:text-red-300 px-3 py-2 rounded-xl transition w-full mt-1">
+        <i data-lucide="log-out" class="w-4 h-4"></i> Sign Out
+      </button>
+    </div>
+  </aside>
+
+  <!-- Mobile sidebar overlay -->
+  <div id="sidebar-overlay" class="hidden fixed inset-0 bg-black/50 z-40 lg:hidden" onclick="toggleSidebar()"></div>
+
+  <!-- Main content -->
+  <div class="lg:ml-64 min-h-screen flex flex-col">
+    <!-- Top bar -->
+    <header class="sticky top-0 z-30 glass border-b border-blue-500/15 h-16 flex items-center justify-between px-4 sm:px-6">
+      <div class="flex items-center gap-3">
+        <button onclick="toggleSidebar()" class="lg:hidden btn-press p-2 hover:bg-blue-500/10 rounded-lg transition">
+          <i data-lucide="menu" class="w-5 h-5 text-gray-400"></i>
+        </button>
+        <h1 id="page-title" class="text-lg font-bold text-white">Dashboard</h1>
+      </div>
+      <div class="flex items-center gap-2">
+        <button onclick="navigate('ai')" class="btn-press flex items-center gap-1.5 text-xs font-bold text-white bg-gradient-to-r from-blue-600 to-blue-700 px-3 py-2 rounded-xl transition shadow-lg shadow-blue-600/30">
+          <i data-lucide="sparkles" class="w-4 h-4"></i>
+          <span class="hidden sm:inline">AI Assistant</span>
+        </button>
+        <span id="live-clock" class="hidden sm:flex items-center gap-1.5 text-xs text-gray-500 font-mono"></span>
+      </div>
+    </header>
+
+    <!-- Content area -->
+    <main id="content" class="flex-1 p-4 sm:p-6 overflow-x-hidden"></main>
+  </div>
+
+  <!-- Access denied -->
+  <div id="access-denied" class="hidden fixed inset-0 z-[100] bg-[#070b16] flex items-center justify-center p-6">
+    <div class="glass border border-red-500/20 rounded-2xl p-8 max-w-md w-full text-center slide-up">
+      <div class="inline-flex items-center justify-center w-16 h-16 bg-red-500/10 rounded-2xl mb-4">
+        <i data-lucide="lock" class="w-8 h-8 text-red-400"></i>
+      </div>
+      <h2 class="text-xl font-bold text-white mb-2">Admin Access Required</h2>
+      <p id="access-denied-msg" class="text-sm text-gray-400 mb-6">You need admin privileges to access the dashboard.</p>
+      <a href="/auth.html?redirect=/admin.html" class="btn-press inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold py-3 px-6 rounded-xl text-sm uppercase tracking-wide transition shadow-lg shadow-blue-600/30">
+        <i data-lucide="log-in" class="w-4 h-4"></i> Sign In
+      </a>
+    </div>
+  </div>
+
+  <!-- Modal container -->
+  <div id="modal-container"></div>
+
+  <!-- Toast -->
+  <div id="toast" class="fixed bottom-5 right-5 z-[200] transform translate-y-20 opacity-0 bg-gray-900 border border-blue-500/30 text-white px-5 py-3 rounded-xl shadow-xl text-xs flex items-center gap-2 font-medium transition-all duration-300 pointer-events-none">
+    <i data-lucide="info" class="w-4 h-4 text-blue-400"></i><span id="toast-msg">Action</span>
+  </div>
+
+  <script type="module" src="/src/native-bridge.js"></script>
+  <script type="module" src="/src/localization-bootstrap.js"></script>
+  <script type="module" src="/src/live-stream-mode.js"></script>
+  <script type="module" src="/src/admin-page.js"></script>
+  <script src="/back-button.js" defer></script>
+</body>
+</html>
