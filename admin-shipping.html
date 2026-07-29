@@ -21,7 +21,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/src/styles.css">
   <script src="https://unpkg.com/lucide@0.460.0" defer></script>
   <style>
     * { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
@@ -43,6 +42,9 @@
     .modal-overlay{animation:fade-in .2s ease forwards}
     .modal-content{animation:slide-up .3s cubic-bezier(.16,1,.3,1) forwards}
   </style>
+  <script type="module" crossorigin src="/assets/adminShipping-oLp73DXs.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/supabase-client-BJmMa02L.js">
+  <link rel="stylesheet" crossorigin href="/assets/supabase-client-D2d-Q6nA.css">
 </head>
 <body class="bg-[#070b16] text-gray-100 min-h-screen">
   <div class="fixed inset-0 pointer-events-none">
@@ -80,9 +82,6 @@
   <div id="toast" class="fixed bottom-5 right-5 z-[100] transform translate-y-20 opacity-0 bg-gray-900 border border-blue-500/30 text-white px-5 py-3 rounded-xl shadow-xl text-xs flex items-center gap-2 font-medium transition-all duration-300 pointer-events-none">
     <i data-lucide="info" class="w-4 h-4 text-blue-400"></i><span id="toast-msg">Action</span>
   </div>
-  <script type="module" src="/src/localization-bootstrap.js"></script>
-  <script type="module" src="/src/live-stream-mode.js"></script>
-  <script type="module" src="/src/admin-shipping-page.js"></script>
   <script src="/back-button.js" defer></script>
 </body>
 </html>

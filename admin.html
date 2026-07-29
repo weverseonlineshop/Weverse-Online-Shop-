@@ -21,7 +21,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/src/styles.css">
   <script src="https://unpkg.com/lucide@0.460.0" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <style>
@@ -52,6 +51,11 @@
     .tab-item.active { background: rgba(59,130,246,.15); color: #60a5fa; border-color: rgba(59,130,246,.3); }
     table.data-table th { position: sticky; top: 0; z-index: 10; }
   </style>
+  <script type="module" crossorigin src="/assets/admin-DKUVzVQy.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/supabase-client-BJmMa02L.js">
+  <link rel="modulepreload" crossorigin href="/assets/preload-helper-CqA7KWtz.js">
+  <link rel="modulepreload" crossorigin href="/assets/native-bridge-DwBvLOUN.js">
+  <link rel="stylesheet" crossorigin href="/assets/supabase-client-D2d-Q6nA.css">
 </head>
 <body class="bg-[#070b16] text-gray-100 min-h-screen">
   <div class="fixed inset-0 pointer-events-none">
@@ -130,10 +134,6 @@
     <i data-lucide="info" class="w-4 h-4 text-blue-400"></i><span id="toast-msg">Action</span>
   </div>
 
-  <script type="module" src="/src/native-bridge.js"></script>
-  <script type="module" src="/src/localization-bootstrap.js"></script>
-  <script type="module" src="/src/live-stream-mode.js"></script>
-  <script type="module" src="/src/admin-page.js"></script>
   <script src="/back-button.js" defer></script>
 </body>
 </html>

@@ -21,7 +21,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/src/styles.css">
   <script src="https://unpkg.com/lucide@0.460.0" defer></script>
   <style>
     * { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
@@ -51,6 +50,9 @@
     .msg-content pre { background: rgba(10,17,36,.8); padding: .75rem; border-radius: .5rem; overflow-x: auto; margin-bottom: .5rem; }
     .msg-content strong { font-weight: 700; color: #fff; }
   </style>
+  <script type="module" crossorigin src="/assets/adminAi-D2Rc74xl.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/supabase-client-BJmMa02L.js">
+  <link rel="stylesheet" crossorigin href="/assets/supabase-client-D2d-Q6nA.css">
 </head>
 <body class="bg-[#070b16] text-gray-100 min-h-screen overflow-hidden">
   <div class="fixed inset-0 pointer-events-none">
@@ -159,9 +161,6 @@
     <i data-lucide="info" class="w-4 h-4 text-blue-400"></i><span id="toast-msg">Action</span>
   </div>
 
-  <script type="module" src="/src/localization-bootstrap.js"></script>
-  <script type="module" src="/src/live-stream-mode.js"></script>
-  <script type="module" src="/src/admin-ai-page.js"></script>
   <script src="/back-button.js" defer></script>
 </body>
 </html>

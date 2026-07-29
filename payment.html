@@ -21,7 +21,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/src/styles.css">
   <script src="https://unpkg.com/lucide@0.460.0" defer></script>
   <style>
     * { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
@@ -49,6 +48,13 @@
     @keyframes pulse-glow{0%,100%{box-shadow:0 0 0 0 rgba(59,130,246,.3)}50%{box-shadow:0 0 0 8px rgba(59,130,246,0)}}
     .pulse-glow{animation:pulse-glow 2s ease-in-out infinite}
   </style>
+  <script type="module" crossorigin src="/assets/payment-BKzrLDTR.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/supabase-client-BJmMa02L.js">
+  <link rel="modulepreload" crossorigin href="/assets/preload-helper-CqA7KWtz.js">
+  <link rel="modulepreload" crossorigin href="/assets/showroom-data-C2Fqj8mU.js">
+  <link rel="modulepreload" crossorigin href="/assets/native-bridge-DwBvLOUN.js">
+  <link rel="modulepreload" crossorigin href="/assets/customer-ai-widget-BZg4go_M.js">
+  <link rel="stylesheet" crossorigin href="/assets/supabase-client-D2d-Q6nA.css">
 </head>
 <body class="bg-[#070b16] text-gray-100 min-h-screen">
 
@@ -89,11 +95,6 @@
     </div>
   </main>
 
-  <script type="module" src="/src/payment-page.js"></script>
-  <script type="module" src="/src/native-bridge.js"></script>
-  <script type="module" src="/src/localization-bootstrap.js"></script>
-  <script type="module" src="/src/live-stream-mode.js"></script>
-  <script type="module" src="/src/customer-ai-widget.js"></script>
   <script src="/back-button.js" defer></script>
 </body>
 </html>
